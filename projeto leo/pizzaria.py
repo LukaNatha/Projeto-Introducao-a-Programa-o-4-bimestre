@@ -18,9 +18,9 @@ def mostrar_cardapio():
 def adicionar_pedido():
     pizza = input("Nome da pizza: ").lower()
     if pizza in cardapio:
-        quantidade = int(input("Quantidade: "))
-        tamanho = input("Tamanho P, M ou G? :")
-        NomeCliente = input("Digite o seu nome: ")
+        quantidade = int(input("Quantidade: ").lower())
+        tamanho = input("Tamanho P, M ou G?: ".lower())
+        NomeCliente = input("Digite o seu nome: ").lower()
         pedido = {
             "nome": NomeCliente,
             "pizza": pizza,
@@ -47,14 +47,16 @@ def calcular_total():
     for p in pedidos:
         total += p["quantidade"] * p["preco"]
     return total
-
+def remover_pedido():
+    pedidos.remove()
 while True:
     print("\nPIZZARIA")
     print("1 - Ver cardápio")
     print("2 - Adicionar pizza")
-    print("3 - Ver pedidos")
-    print("4 - Finalizar pedido")
-    print("5 - Sair")
+    print("3 - Remover pedidos")
+    print("4 - Ver pedidos")
+    print("5 - Finalizar pedido")
+    print("6 - Sair")
 
     opcao = input("Opção: ")
 
@@ -63,12 +65,16 @@ while True:
     elif opcao == "2":
         adicionar_pedido()
     elif opcao == "3":
+        remover_pedido()
+    elif opcao == "5":
         ver_pedidos()
-    elif opcao == "4":
+    elif opcao == "5":
         total = calcular_total()
         print("Total a pagar: R$", total)
         break
-    elif opcao == "5":
+    elif opcao == "6":
+        total = calcular_total()
+        print("Total a pagar: R$", total)
         break
     else:
         print("Opção inválida")
