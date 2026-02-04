@@ -20,7 +20,9 @@ def adicionar_pedido():
     if pizza in cardapio:
         quantidade = int(input("Quantidade: "))
         tamanho = input("Tamanho P, M ou G? :")
+        NomeCliente = input("Digite o seu nome: ")
         pedido = {
+            "nome": NomeCliente,
             "pizza": pizza,
             "quantidade": quantidade,
             "tamanho": tamanho,
@@ -38,7 +40,7 @@ def ver_pedidos():
     else:
         print("\nPEDIDOS")
         for p in pedidos:
-            print(p["pizza"], "-", p["quantidade"], "x R$", p["preco"])
+            print(p["nome"], "-", p["pizza"], "-", p["quantidade"], "x R$", p["preco"])
 
 def calcular_total():
     total = 0
